@@ -1,10 +1,14 @@
-
+import{useState, useEffect} from 'react'
 import './App.css';
+//components
+import MovieDisplay from './components/MovieDisplay';
+import Form from './components/Form';
 
 function App() {
   return (
     <div className="App">
-     <h3>Hello</h3>
+      <Form/>
+      <MovieDisplay/>
     </div>
   );
 }
