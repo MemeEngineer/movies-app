@@ -5,10 +5,10 @@ import MovieDisplay from './components/MovieDisplay';
 import Form from './components/Form';
 
  function App() {
-  // variable with apikey
-  const apiKey = "c1ba95ea";
-  //.env.local callout
-  console.log(process.env.REACT_APP_MOVIE_API_KEY);
+
+  // //.env.local callout
+  // console.log(process.env.REACT_APP_MOVIE_API_KEY);
+
   //State to hold the movie data
   const [movie, setMovie]= useState(null);
   
@@ -16,7 +16,7 @@ import Form from './components/Form';
   const getMovie = async (searchTerm) => {
     //make fetch request and store response
     try{
-    const response = await fetch(`http://www.omdbapi.com/?apikey=${apiKey}&t=${searchTerm}`)
+    const response = await fetch(`http://www.omdbapi.com/?apikey=${process.env.REACT_APP_MOVIE_API_KEY}&t=${searchTerm}`)
 
     //parse JSON response into a javaScript object
     const data = await response.json()
@@ -37,7 +37,7 @@ useEffect(() => {
   // We pass the getMovie function as a prop called moviesearch
   // We pass movie as props to movie display
   return (
-    <div className="App">
+    <div className="bg-red-200">
       <Form moviesearch={getMovie}/>
       <MovieDisplay movie={movie}/>
     </div>
