@@ -7,7 +7,8 @@ import Form from './components/Form';
  function App() {
   // variable with apikey
   const apiKey = "c1ba95ea";
-
+  //.env.local callout
+  console.log(process.env.REACT_APP_MOVIE_API_KEY);
   //State to hold the movie data
   const [movie, setMovie]= useState(null);
   
